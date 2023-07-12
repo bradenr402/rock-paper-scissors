@@ -92,15 +92,16 @@ function game() {
     }
 
     // Announce the winner when teh game is done
+    console.log('\n');
     console.log(announceWinner());
 }
 
 // Create a function to return the winner
 function announceWinner(score1, score2) {
     if (playerScore > computerScore) {
-        return `You win! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
+        return `You won the game! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
     } else if (computerScore > playerScore) {
-        return `You lose! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
+        return `You lost the game! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
     } else {
         return `It's a draw! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
     }
