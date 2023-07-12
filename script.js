@@ -18,7 +18,7 @@ function playRound(playerSelection, computerSelection) {
     // Print the computer's and player's choices to the console
     console.log(`Computer choice: ${computerSelection}.`);
     console.log(`Your choice: ${playerSelection}.`);
-    
+
     // Compare the computer's choice with the player's choice
     if (playerSelection === computerSelection) {
         //draw
@@ -63,7 +63,7 @@ function updateScore() {
 }
 
 // Create a function to ensure the player's selection is valid
-function validatePlayerSelection(playerInput) {
+function validatePlayerSelection() {
     while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
         console.log('Invalid choice! Please try again.');
         playerSelection = prompt('rock, paper, or scissors?', '');
@@ -97,7 +97,7 @@ function game() {
 }
 
 // Create a function to return the winner
-function announceWinner(score1, score2) {
+function announceWinner() {
     if (playerScore > computerScore) {
         return `You won the game! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
     } else if (computerScore > playerScore) {
@@ -116,4 +116,5 @@ let winner;
 let playerScore = 0;
 let computerScore = 0;
 
+// Call game function to start game
 game();
