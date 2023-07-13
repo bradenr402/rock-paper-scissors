@@ -12,11 +12,11 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(`Computer choice: ${computerSelection}.`);
+    console.log(`Computer's choice: ${computerSelection}.`);
     console.log(`Your choice: ${playerSelection}.`);
 
     if (playerSelection === computerSelection) {
-        winner = 'draw';
+        winner = '';
         return `Draw! You both selected ${playerSelection}!`;
     }
     else if (playerSelection === 'Rock') {
@@ -48,15 +48,9 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// Create a function to update the score each round
 function updateScore() {
-    if (winner === 'player') {
-        // increment player score by 1
-        playerScore++;
-    } else if (winner === 'computer') {
-        // increment computer score by 1
-        computerScore++;
-    }
+    if (winner === 'player') playerScore++;
+    else if (winner === 'computer') computerScore++;
 }
 
 // Create a function to ensure the player's selection is valid
