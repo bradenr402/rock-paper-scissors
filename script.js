@@ -11,41 +11,40 @@ function getComputerChoice() {
     }
 }
 
-// Create a function to play one round of 'Rock, Paper, Scissors'
 function playRound(playerSelection, computerSelection) {
-    // Print the computer's and player's choices to the console
     console.log(`Computer choice: ${computerSelection}.`);
     console.log(`Your choice: ${playerSelection}.`);
 
-    // Compare the computer's choice with the player's choice
     if (playerSelection === computerSelection) {
-        //draw
         winner = 'draw';
         return `Draw! You both selected ${playerSelection}!`;
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        // player wins with rock
-        winner = 'player';
-        return `You win! ${playerSelection} beats ${computerSelection}!`;
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        // player loses with rock
-        winner = 'computer';
-        return `You lose! ${computerSelection} beats ${playerSelection}!`;
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        // player wins with paper
-        winner = 'player';
-        return `You win! ${playerSelection} beats ${computerSelection}!`;
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        // player loses with paper
-        winner = 'computer';
-        return `You lose! ${computerSelection} beats ${playerSelection}!`;
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        // player wins with scissors
-        winner = 'player';
-        return `You win! ${playerSelection} beats ${computerSelection}!`;
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        // player loses with scissors
-        winner = 'computer';
-        return `You lose! ${computerSelection} beats ${playerSelection}!`;
+    }
+    else if (playerSelection === 'Rock') {
+        if (computerSelection === 'Scissors') {
+            winner = 'player';
+            return `You win! ${playerSelection} beats ${computerSelection}!`;
+        } else {
+            winner = 'computer';
+            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+        }
+    }
+    else if (playerSelection === 'Paper') {
+        if (computerSelection === 'Rock') {
+            winner = 'player';
+            return `You win! ${playerSelection} beats ${computerSelection}!`;
+        } else {
+            winner = 'computer';
+            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+        }
+    }
+    else if (playerSelection === 'Scissors') {
+        if (computerSelection === 'Paper') {
+            winner = 'player';
+            return `You win! ${playerSelection} beats ${computerSelection}!`;
+        } else {
+            winner = 'computer';
+            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+        }
     }
 }
 
