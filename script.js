@@ -1,15 +1,13 @@
-// Create a function to get the computer's selection: 'rock', 'paper', or 'scissors'
 function getComputerChoice() {
-    // Generate a random number 1, 2, or 3
-    let computerRandomNumber = Math.floor(Math.random() * 3) + 1;
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
 
-    // Match the random numbers to either rock, paper, or scissors
-    if (computerRandomNumber === 1) {
-        return 'rock';
-    } else if (computerRandomNumber === 2) {
-        return 'paper';
-    } else if (computerRandomNumber === 3) {
-        return 'scissors';
+    switch (randomNumber) {
+        case 1:
+            return 'rock';
+        case 2:
+            return 'paper';
+        case 3: 
+            return 'scissors';
     }
 }
 
@@ -64,9 +62,9 @@ function updateScore() {
 
 // Create a function to ensure the player's selection is valid
 function validatePlayerSelection() {
-    while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+    while (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
         console.log('Invalid choice! Please try again.');
-        playerSelection = prompt('rock, paper, or scissors?', '');
+        playerSelection = prompt('Rock, paper, or scissors?', '');
     }
 }
 
@@ -79,13 +77,15 @@ function game() {
 
         // Get computer selection
         computerSelection = getComputerChoice().toLowerCase();
+        computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
         // Get player selection and validate it
-        playerSelection = prompt('rock, paper, or scissors?', '').toLowerCase();
+        playerSelection = prompt('Rock, paper, or scissors?', '').toLowerCase();
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
         validatePlayerSelection(playerSelection);
 
         // Print results of the round
-        console.log(playRound(playerSelection, computerSelection.toLowerCase()));
+        console.log(playRound(playerSelection, computerSelection));
 
         // Update the score
         updateScore();
