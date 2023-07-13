@@ -85,7 +85,7 @@ function game() {
         validatePlayerSelection(playerSelection);
 
         // Print results of the round
-        console.log(playRound( playerSelection, computerSelection.toLowerCase() ));
+        console.log(playRound(playerSelection, computerSelection.toLowerCase()));
 
         // Update the score
         updateScore();
