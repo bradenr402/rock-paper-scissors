@@ -53,9 +53,10 @@ function updateScore() {
     else if (winner === 'computer') computerScore++;
 }
 
-// Create a function to ensure the player's selection is valid
 function validatePlayerSelection() {
-    while (playerSelection !== 'Rock' && playerSelection !== 'Paper' && playerSelection !== 'Scissors') {
+    while (playerSelection !== 'Rock' 
+    && playerSelection !== 'Paper' 
+    && playerSelection !== 'Scissors') {
         console.log('Invalid choice! Please try again.');
         playerSelection = prompt('Rock, paper, or scissors?', '');
     }
