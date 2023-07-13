@@ -27,8 +27,6 @@ function getPlayerSelection() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(`Your choice: ${playerSelection}.`);
-    console.log(`Computer's choice: ${computerSelection}.`);
 
     if (playerSelection === computerSelection) {
         winner = '';
@@ -68,19 +66,6 @@ function updateScore() {
     else if (winner === 'computer') computerScore++;
 }
 
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        console.log(`\nRound ${i}`);
-
-        getComputerSelection();
-        getPlayerSelection();
-
-        console.log(playRound(playerSelection, computerSelection));
-        updateScore();
-    }
-    console.log(announceWinner());
-}
-
 function announceWinner() {
     if (playerScore > computerScore) {
         return `\nYou won the game! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
@@ -89,6 +74,22 @@ function announceWinner() {
     } else {
         return `\nIt's a draw! \nYou scored ${playerScore} points, and computer scored ${computerScore}.`;
     }
+}
+
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        console.log(`\nRound ${i}`);
+
+        getPlayerSelection();
+        console.log(`Your choice: ${playerSelection}.`);
+
+        getComputerSelection();
+        console.log(`Computer's choice: ${computerSelection}.`);
+
+        console.log(playRound(playerSelection, computerSelection));
+        updateScore();
+    }
+    console.log(announceWinner());
 }
 
 let playerSelection, 
