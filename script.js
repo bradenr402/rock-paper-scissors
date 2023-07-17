@@ -132,6 +132,8 @@ rockButton.addEventListener('click', () => {
         divWinner.textContent = announceWinner();
         playerScore = 0;
         computerScore = 0;
+    } else {
+        divWinner.textContent = '';
     }
 });
 
@@ -156,6 +158,8 @@ paperButton.addEventListener('click', () => {
         divWinner.textContent = announceWinner();
         playerScore = 0;
         computerScore = 0;
+    } else {
+        divWinner.textContent = '';
     }
 });
 
@@ -180,24 +184,23 @@ scissorsButton.addEventListener('click', () => {
         divWinner.textContent = announceWinner();
         playerScore = 0;
         computerScore = 0;
+    } else {
+        divWinner.textContent = '';
     }
 });
 
 const body = document.querySelector('body');
 
 const divComputerChoice = document.createElement('div');
-divComputerChoice.backgroundColor = '#333';
-divComputerChoice.textContent = '';
+divComputerChoice.backgroundColor = 'gray';
 body.appendChild(divComputerChoice);
 
 const divResults = document.createElement('div');
-divResults.style.backgroundColor = 'green';
-divResults.textContent = '';
+divResults.style.backgroundColor = 'lightgreen';
 body.appendChild(divResults);
 
 const divScore = document.createElement('div');
 divScore.style.backgroundColor = 'orange';
-divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
 body.appendChild(divScore);
 
 const divWinner = document.createElement('div');
