@@ -189,20 +189,24 @@ scissorsButton.addEventListener('click', () => {
     }
 });
 
-const body = document.querySelector('body');
+const content = document.querySelector('.content');
 
 const divComputerChoice = document.createElement('div');
-divComputerChoice.backgroundColor = 'gray';
-body.appendChild(divComputerChoice);
+divComputerChoice.classList.add('gameContent');
+divComputerChoice.id = 'computerChoice';
+content.appendChild(divComputerChoice);
 
 const divResults = document.createElement('div');
-divResults.style.backgroundColor = 'lightgreen';
-body.appendChild(divResults);
+divResults.classList.add('gameContent');
+divResults.id = 'results';
+content.appendChild(divResults);
 
 const divScore = document.createElement('div');
-divScore.style.backgroundColor = 'orange';
-body.appendChild(divScore);
+divScore.classList.add('gameContent');
+divScore.id = 'score';
+content.appendChild(divScore);
 
 const divWinner = document.createElement('div');
-divWinner.style.backgroundColor = 'lightblue';
-body.appendChild(divWinner);
+divWinner.classList.add('gameContent');
+divWinner.id = 'winner';
+content.appendChild(divWinner);
