@@ -110,7 +110,25 @@ let playerSelection,
     // game();
 
 const rockButton = document.querySelector('#rock');
-rockButton.addEventListener('click', () => playRound('Rock', getComputerSelection()));
+rockButton.addEventListener('click', () => {
+    playRound('Rock', getComputerSelection())
+    if (winner === '') {
+        divResults.textContent = "Its a draw! You both chose rock!"
+        updateScore();
+    } else if (winner === 'player') {
+        divResults.textContent = 'You win! Rock beats scissors.'
+        updateScore();
+    } else {
+        divResults.textContent = 'You lose! Paper beats rock.'
+        updateScore();
+    }
+
+    if (playerScore === 5 || computerScore === 5) {
+        divWinner.textContent = announceWinner();
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
 
 const paperButton = document.querySelector('#paper');
 paperButton.addEventListener('click', () => playRound('Paper', getComputerSelection()));
@@ -118,3 +136,12 @@ paperButton.addEventListener('click', () => playRound('Paper', getComputerSelect
 const scissorsButton = document.querySelector('#scissors');
 scissorsButton.addEventListener('click', () => playRound('Scissors', getComputerSelection()))
 
+const body = document.querySelector('body');
+
+const divResults = document.createElement('div');
+divResults.style.backgroundColor = 'green';
+body.appendChild(divResults);
+
+const divWinner = document.createElement('div');
+divWinner.style.backgroundColor = 'lightblue';
+body.appendChild(divWinner);
