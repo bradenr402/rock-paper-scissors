@@ -1,6 +1,6 @@
 function getComputerSelection() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
-
+/*
     switch (randomNumber) {
         case 1:
             computerSelection = 'Rock';
@@ -12,10 +12,19 @@ function getComputerSelection() {
             computerSelection = 'Scissors';
             break;
     }
+*/
+    switch (randomNumber) {
+        case 1:
+            return 'Rock';
+        case 2:
+            return 'Paper';
+        case 3: 
+            return 'Scissors';
+    }
 }
-
-function getPlayerSelection() {
-    playerInput = prompt('Rock, paper, or scissors?', '');
+/*
+function getPlayerSelection(buttonPressed) {
+    playerInput = buttonPressed;
     playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
 
     while (playerSelection !== 'Rock' 
@@ -25,7 +34,7 @@ function getPlayerSelection() {
         getPlayerSelection();
     }
 }
-
+*/
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
@@ -59,6 +68,7 @@ function playRound(playerSelection, computerSelection) {
             return `You lose! ${computerSelection} beats ${playerSelection}!`;
         }
     }
+
 }
 
 function updateScore() {
@@ -97,5 +107,14 @@ let playerSelection,
     winner, 
     playerScore = 0, 
     computerScore = 0;
+    // game();
 
-game();
+const rockButton = document.querySelector('#rock');
+rockButton.addEventListener('click', () => playRound('Rock', getComputerSelection()));
+
+const paperButton = document.querySelector('#paper');
+paperButton.addEventListener('click', () => playRound('Paper', getComputerSelection()));
+
+const scissorsButton = document.querySelector('#scissors');
+scissorsButton.addEventListener('click', () => playRound('Scissors', getComputerSelection()))
+
