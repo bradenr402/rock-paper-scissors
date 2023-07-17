@@ -37,6 +37,8 @@ function getPlayerSelection(buttonPressed) {
 */
 function playRound(playerSelection, computerSelection) {
 
+    divComputerChoice.textContent = `Computer chose: ${computerSelection}`;
+
     if (playerSelection === computerSelection) {
         winner = '';
         return `Draw! You both selected ${playerSelection}!`;
@@ -107,20 +109,23 @@ let playerSelection,
     winner, 
     playerScore = 0, 
     computerScore = 0;
-    // game();
+// game();
 
 const rockButton = document.querySelector('#rock');
 rockButton.addEventListener('click', () => {
     playRound('Rock', getComputerSelection())
     if (winner === '') {
-        divResults.textContent = "Its a draw! You both chose rock!"
         updateScore();
+        divResults.textContent = 'Its a draw! You both chose rock!';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
     } else if (winner === 'player') {
-        divResults.textContent = 'You win! Rock beats scissors.'
         updateScore();
+        divResults.textContent = 'You win! Rock beats scissors.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
     } else {
-        divResults.textContent = 'You lose! Paper beats rock.'
         updateScore();
+        divResults.textContent = 'You lose! Paper beats rock.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
     }
 
     if (playerScore === 5 || computerScore === 5) {
@@ -131,16 +136,69 @@ rockButton.addEventListener('click', () => {
 });
 
 const paperButton = document.querySelector('#paper');
-paperButton.addEventListener('click', () => playRound('Paper', getComputerSelection()));
+paperButton.addEventListener('click', () => {
+    playRound('Paper', getComputerSelection());
+    if (winner === '') {
+        updateScore();
+        divResults.textContent = 'Its a draw! You both chose paper!';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    } else if (winner === 'player') {
+        updateScore();
+        divResults.textContent = 'You win! Paper beats rock.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    } else {
+        updateScore();
+        divResults.textContent = 'You lose! Scissors beats paper.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    }
+
+    if (playerScore === 5 || computerScore === 5) {
+        divWinner.textContent = announceWinner();
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
 
 const scissorsButton = document.querySelector('#scissors');
-scissorsButton.addEventListener('click', () => playRound('Scissors', getComputerSelection()))
+scissorsButton.addEventListener('click', () => {
+    playRound('Scissors', getComputerSelection());
+    if (winner === '') {
+        updateScore();
+        divResults.textContent = 'Its a draw! You both chose scissors!';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    } else if (winner === 'player') {
+        updateScore();
+        divResults.textContent = 'You win! Scissors beats paper.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    } else {
+        updateScore();
+        divResults.textContent = 'You lose! Rock beats scissors.';
+        divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+    }
+
+    if (playerScore === 5 || computerScore === 5) {
+        divWinner.textContent = announceWinner();
+        playerScore = 0;
+        computerScore = 0;
+    }
+});
 
 const body = document.querySelector('body');
 
+const divComputerChoice = document.createElement('div');
+divComputerChoice.backgroundColor = '#333';
+divComputerChoice.textContent = '';
+body.appendChild(divComputerChoice);
+
 const divResults = document.createElement('div');
 divResults.style.backgroundColor = 'green';
+divResults.textContent = '';
 body.appendChild(divResults);
+
+const divScore = document.createElement('div');
+divScore.style.backgroundColor = 'orange';
+divScore.textContent = `\nYour score: ${playerScore} \nComputer score: ${computerScore}`;
+body.appendChild(divScore);
 
 const divWinner = document.createElement('div');
 divWinner.style.backgroundColor = 'lightblue';
