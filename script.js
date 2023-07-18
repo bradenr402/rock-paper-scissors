@@ -1,18 +1,6 @@
 function getComputerSelection() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
-/*
-    switch (randomNumber) {
-        case 1:
-            computerSelection = 'Rock';
-            break;
-        case 2:
-            computerSelection = 'Paper';
-            break;
-        case 3: 
-            computerSelection = 'Scissors';
-            break;
-    }
-*/
+
     switch (randomNumber) {
         case 1:
             return 'Rock';
@@ -22,52 +10,39 @@ function getComputerSelection() {
             return 'Scissors';
     }
 }
-/*
-function getPlayerSelection(buttonPressed) {
-    playerInput = buttonPressed;
-    playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
 
-    while (playerSelection !== 'Rock' 
-    && playerSelection !== 'Paper' 
-    && playerSelection !== 'Scissors') {
-        console.log('Invalid choice! Please try again.');
-        getPlayerSelection();
-    }
-}
-*/
 function playRound(playerSelection, computerSelection) {
-
     divComputerChoice.textContent = `Computer chose: ${computerSelection}`;
 
     if (playerSelection === computerSelection) {
         winner = '';
-        return `Draw! You both selected ${playerSelection}!`;
+        return;
     }
     else if (playerSelection === 'Rock') {
         if (computerSelection === 'Scissors') {
             winner = 'player';
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
+            return;
         } else {
             winner = 'computer';
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            return;
         }
     }
     else if (playerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
             winner = 'player';
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
+            return;
         } else {
             winner = 'computer';
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            return;
         }
     }
     else if (playerSelection === 'Scissors') {
         if (computerSelection === 'Paper') {
             winner = 'player';
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
+            return;
         } else {
             winner = 'computer';
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
+            return;
         }
     }
 
@@ -133,7 +108,7 @@ rockButton.addEventListener('click', () => {
         playerScore = 0;
         computerScore = 0;
     } else {
-        divWinner.textContent = '';
+        divWinner.textContent = 'winner';
     }
 });
 
@@ -159,7 +134,7 @@ paperButton.addEventListener('click', () => {
         playerScore = 0;
         computerScore = 0;
     } else {
-        divWinner.textContent = '';
+        divWinner.textContent = 'winner';
     }
 });
 
@@ -185,7 +160,7 @@ scissorsButton.addEventListener('click', () => {
         playerScore = 0;
         computerScore = 0;
     } else {
-        divWinner.textContent = '';
+        divWinner.textContent = 'winner';
     }
 });
 
@@ -194,19 +169,24 @@ const content = document.querySelector('.content');
 const divComputerChoice = document.createElement('div');
 divComputerChoice.classList.add('gameContent');
 divComputerChoice.id = 'computerChoice';
+divComputerChoice.textContent = 'computer'
 content.appendChild(divComputerChoice);
 
 const divResults = document.createElement('div');
 divResults.classList.add('gameContent');
 divResults.id = 'results';
+divResults.textContent = 'results';
 content.appendChild(divResults);
 
 const divScore = document.createElement('div');
 divScore.classList.add('gameContent');
 divScore.id = 'score';
+divScore.textContent = 'score';
 content.appendChild(divScore);
 
+const winnerParent = document.querySelector('.winnerParent');
 const divWinner = document.createElement('div');
 divWinner.classList.add('gameContent');
 divWinner.id = 'winner';
-content.appendChild(divWinner);
+divWinner.textContent = 'winner';
+winnerParent.appendChild(divWinner);
