@@ -7,20 +7,25 @@
         <script src="script.js" defer></script>
         <title>Rock, Paper, Scissors!</title>
     </head>
-  
+
     <body>
-        <h1>ROCK, PAPER, SCISSORS</h1>
-        <p>Choose your weapon!</p>
+        <h1><span id="rock-title">ROCK,</span> <span id="paper-title">PAPER,</span> <span id="scissors-title">SCISSORS!</span></h1>
+        <p>Make your choice!</p>
         <div class="flex-container">
-            <button id="rock">🪨 ROCK!</button>
-            <button id="paper">📄 PAPER!</button>
-            <button id="scissors">✂️ SCISSORS!</button>
+            <div class="button-container">
+                <button id="rock">🪨</button>
+                <button id="paper">📃</button>
+                <button id="scissors">✂️</button>
+            </div>
         </div>
-        <div class="content">
+        <div class="choices">
+            <div class="player-choice"></div>
+            <div class="computer-choice"></div>
+        </div>
+        <div class="results">
+            <div class="score"></div>
+            <div class="winnerParent"></div>
+        </div>
 
-        </div>
-        <div class="winnerParent">
-
-        </div>
     </body>
 </html>
